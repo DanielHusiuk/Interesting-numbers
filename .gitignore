@@ -1,0 +1,4 @@
+.swiftlint.yml
+.DS_Store
+.build/
+DerivedData/
