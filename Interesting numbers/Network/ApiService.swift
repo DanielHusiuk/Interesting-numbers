@@ -35,6 +35,30 @@ final class ApiService: ApiServiceProtocol {
         type: FactType,
         completion: @escaping (Result<[NumberModel], Error>) -> Void
     ) {
+        let (path, queryItems) = makePathAndQueryItems(for: request, type: type)
+        
+        guard let url = makeURL(path: path, queryItems: queryItems) else {
+            completion(.failure(DataError.invalidData))
+            return
+        }
+        
+        switch request {
+        case .number, .random:
+            apiManager.fetchData(url: url) { (result: Result<NumberModel, Error>) in
+                completion(result.map { [$0] })
+            }
+        case .range, .multiple:
+            apiManager.fetchData(url: url, completion: completion)
+        }
+    }
+    
+    private func makePathAndQueryItems(
+        for request: RequestType,
+        type: FactType
+    ) -> (
+        path: String,
+        queryItems: [URLQueryItem]
+    ) {
         var queryItems = [URLQueryItem(name: "type", value: type.rawValue)]
         let path: String
         
@@ -58,20 +82,7 @@ final class ApiService: ApiServiceProtocol {
                 .joined(separator: ",")
             queryItems.append(URLQueryItem(name: "numbers", value: joined))
         }
-        
-        guard let url = makeURL(path: path, queryItems: queryItems) else {
-            completion(.failure(DataError.invalidData))
-            return
-        }
-        
-        switch request {
-        case .number, .random:
-            apiManager.fetchData(url: url) { (result: Result<NumberModel, Error>) in
-                completion(result.map { [$0] })
-            }
-        case .range, .multiple:
-            apiManager.fetchData(url: url, completion: completion)
-        }
+        return (path, queryItems)
     }
     
     private func makeURL(path: String, queryItems: [URLQueryItem]) -> URL? {
