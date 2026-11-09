@@ -74,6 +74,7 @@ final class CustomSegmentedControl: UIView {
             button.titleLabel?.textAlignment = .center
             button.layer.cornerRadius = 18
             button.tag = index
+            button.accessibilityIdentifier = "main.segment.\(index)"
             button.addTarget(
                 self,
                 action: #selector(segmentTapped(_:)),

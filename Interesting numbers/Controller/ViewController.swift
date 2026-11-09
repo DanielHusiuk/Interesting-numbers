@@ -20,8 +20,17 @@ final class ViewController: UIViewController {
     private let segmentedControl = CustomSegmentedControl()
     private let textField = CustomTextField()
     
-    private let apiService: ApiServiceProtocol = ApiService(apiManager: ApiManager())
+    private let apiService: ApiServiceProtocol
     private let factType: FactType = .trivia
+    
+    init(apiService: ApiServiceProtocol) {
+        self.apiService = apiService
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private let titleLabel = CustomLabel(
         text: "Interesting Numbers",
@@ -67,6 +76,10 @@ final class ViewController: UIViewController {
     
     private func setupView() {
         view.backgroundColor = .systemBackground
+        view.accessibilityIdentifier = "main.view"
+        segmentedControl.accessibilityIdentifier = "main.segmentedControl"
+        textField.accessibilityIdentifier = "main.numberTextField"
+        actionButton.accessibilityIdentifier = "main.displayFactButton"
         textField.delegate = self
         updateInterfaceState()
     }

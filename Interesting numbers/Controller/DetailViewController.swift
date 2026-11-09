@@ -54,6 +54,10 @@ final class DetailViewController: UIViewController {
     
     private func setupView() {
         view.backgroundColor = .customPurple
+        view.accessibilityIdentifier = "detail.view"
+        titleLabel.accessibilityIdentifier = "detail.titleLabel"
+        factLabel.accessibilityIdentifier = "detail.factLabel"
+        closeButton.accessibilityIdentifier = "detail.closeButton"
         configure(with: facts)
     }
     
