@@ -34,8 +34,18 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
+				Network/Mock/MockApiManager.swift,
+				Network/Mock/MockFact.swift,
 			);
 			target = 6538F28F3086633300AEFFEC /* Interesting numbers */;
+		};
+		65D3FD0930922FBF00C0DED4 /* Exceptions for "Interesting numbers" folder in "Interesting numbersTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Network/Mock/MockApiManager.swift,
+				Network/Mock/MockFact.swift,
+			);
+			target = 6538F2A53086633400AEFFEC /* Interesting numbersTests */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -44,6 +54,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				6538F2B83086633400AEFFEC /* Exceptions for "Interesting numbers" folder in "Interesting numbers" target */,
+				65D3FD0930922FBF00C0DED4 /* Exceptions for "Interesting numbers" folder in "Interesting numbersTests" target */,
 			);
 			path = "Interesting numbers";
 			sourceTree = "<group>";
