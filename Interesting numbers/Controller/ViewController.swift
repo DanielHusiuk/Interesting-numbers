@@ -23,16 +23,8 @@ final class ViewController: UIViewController {
     private let apiService: ApiServiceProtocol
     private let factType: FactType = .trivia
     
-    init() {
-        #if DEBUG
-            if ProcessInfo.processInfo.arguments.contains("-uiTesting") {
-                self.apiService = MockService()
-            } else {
-                self.apiService = ApiService(apiManager: ApiManager())
-        }
-        #else
-        self.apiService = ApiService(apiManager: ApiManager())
-        #endif
+    init(apiService: ApiServiceProtocol) {
+        self.apiService = apiService
         super.init(nibName: nil, bundle: nil)
     }
     
