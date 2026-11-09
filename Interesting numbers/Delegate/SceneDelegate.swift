@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = navigationController
-        window.tintColor = .systemPurple
+        window.tintColor = .customPurple
         self.window = window
         window.makeKeyAndVisible()
     }
