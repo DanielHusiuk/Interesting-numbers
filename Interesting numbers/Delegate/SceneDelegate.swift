@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import InterestingNumbersLibrary
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -23,10 +24,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if ProcessInfo.processInfo.arguments.contains("-uiTesting") {
             apiService = MockService()
         } else {
-            apiService = ApiService(apiManager: ApiManager())
+            apiService = ApiService()
         }
 #else
-        apiService = ApiService(apiManager: ApiManager())
+        apiService = ApiService()
 #endif
         
         let mainViewController = ViewController(apiService: apiService)

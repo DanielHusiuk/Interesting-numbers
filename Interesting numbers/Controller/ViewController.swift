@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import InterestingNumbersLibrary
 
 final class ViewController: UIViewController {
     
@@ -235,10 +236,10 @@ final class ViewController: UIViewController {
     }
     
     private func updateInterfaceState() {
-        segmentedControl.onSelectionChanged = { [weak self] index in
+        segmentedControl.onSelectionChanged = { [weak self] mode in
             guard let self else { return }
             
-            if index == 1 {
+            if mode == .random {
                 self.view.endEditing(true)
                 self.textField.text = nil
                 self.textField.isEnabled = false
@@ -257,7 +258,7 @@ final class ViewController: UIViewController {
         let request: RequestType
         do {
             request = try RequestManager.makeRequest(
-                selectedIndex: segmentedControl.selectedIndex,
+                mode: segmentedControl.selectedMode,
                 inputText: textField.text
             )
         } catch {

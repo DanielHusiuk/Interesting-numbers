@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import InterestingNumbersLibrary
 
 final class MockService: ApiServiceProtocol {
     
     func fetchFacts(
         for request: RequestType,
         type: FactType,
-        completion: @escaping (Result<[NumberModel], Error>) -> Void
+        completion: @escaping @MainActor (Result<[NumberModel], Error>) -> Void
     ) {
         let numbers: [Int]
         

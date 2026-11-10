@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import InterestingNumbersLibrary
 
 final class DetailViewController: UIViewController {
     

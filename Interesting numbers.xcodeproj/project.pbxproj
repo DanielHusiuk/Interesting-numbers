@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6595C4FE30A31EB300F3B6B3 /* InterestingNumbersLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 6595C4FD30A31EB300F3B6B3 /* InterestingNumbersLibrary */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		6538F2A73086633400AEFFEC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		6538F2903086633300AEFFEC /* Interesting numbers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Interesting numbers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6538F2A63086633400AEFFEC /* Interesting numbersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Interesting numbersTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6538F2B03086633400AEFFEC /* Interesting numbersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Interesting numbersUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65A12D6A30A346DA00D51436 /* InterestingNumbersLibrary */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = InterestingNumbersLibrary; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -34,18 +39,22 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
-				Network/Mock/MockApiManager.swift,
-				Network/Mock/MockFact.swift,
 			);
 			target = 6538F28F3086633300AEFFEC /* Interesting numbers */;
 		};
-		65D3FD0930922FBF00C0DED4 /* Exceptions for "Interesting numbers" folder in "Interesting numbersTests" target */ = {
+		6595C53D30A32CDB00F3B6B3 /* Exceptions for "Interesting numbersUITests" folder in "Interesting numbers" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Network/Mock/MockApiManager.swift,
-				Network/Mock/MockFact.swift,
+				MockService.swift,
 			);
-			target = 6538F2A53086633400AEFFEC /* Interesting numbersTests */;
+			target = 6538F28F3086633300AEFFEC /* Interesting numbers */;
+		};
+		6595C53E30A32CDB00F3B6B3 /* Exceptions for "Interesting numbersUITests" folder in "Interesting numbersUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				MockService.swift,
+			);
+			target = 6538F2AF3086633400AEFFEC /* Interesting numbersUITests */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -54,7 +63,6 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				6538F2B83086633400AEFFEC /* Exceptions for "Interesting numbers" folder in "Interesting numbers" target */,
-				65D3FD0930922FBF00C0DED4 /* Exceptions for "Interesting numbers" folder in "Interesting numbersTests" target */,
 			);
 			path = "Interesting numbers";
 			sourceTree = "<group>";
@@ -66,6 +74,10 @@
 		};
 		6538F2B33086633400AEFFEC /* Interesting numbersUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6595C53D30A32CDB00F3B6B3 /* Exceptions for "Interesting numbersUITests" folder in "Interesting numbers" target */,
+				6595C53E30A32CDB00F3B6B3 /* Exceptions for "Interesting numbersUITests" folder in "Interesting numbersUITests" target */,
+			);
 			path = "Interesting numbersUITests";
 			sourceTree = "<group>";
 		};
@@ -76,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6595C4FE30A31EB300F3B6B3 /* InterestingNumbersLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +115,7 @@
 				6538F2923086633300AEFFEC /* Interesting numbers */,
 				6538F2A93086633400AEFFEC /* Interesting numbersTests */,
 				6538F2B33086633400AEFFEC /* Interesting numbersUITests */,
+				65A12D6A30A346DA00D51436 /* InterestingNumbersLibrary */,
 				6538F2913086633300AEFFEC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -137,6 +151,7 @@
 			);
 			name = "Interesting numbers";
 			packageProductDependencies = (
+				6595C4FD30A31EB300F3B6B3 /* InterestingNumbersLibrary */,
 			);
 			productName = "Interesting numbers";
 			productReference = 6538F2903086633300AEFFEC /* Interesting numbers.app */;
@@ -203,6 +218,7 @@
 					};
 					6538F2A53086633400AEFFEC = {
 						CreatedOnToolsVersion = 26.3;
+						LastSwiftMigration = 2720;
 						TestTargetID = 6538F28F3086633300AEFFEC;
 					};
 					6538F2AF3086633400AEFFEC = {
@@ -220,6 +236,9 @@
 			);
 			mainGroup = 6538F2873086633300AEFFEC;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6595C4FC30A31EB300F3B6B3 /* XCLocalSwiftPackageReference "InterestingNumbersLibrary" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6538F2913086633300AEFFEC /* Products */;
 			projectDirPath = "";
@@ -343,7 +362,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -351,7 +370,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -382,7 +401,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -390,7 +409,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -519,6 +538,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SVFF6W5Y6W;
@@ -529,14 +549,15 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Interesting numbers.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Interesting numbers";
 			};
 			name = Debug;
@@ -545,6 +566,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SVFF6W5Y6W;
@@ -555,14 +577,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Interesting numbers.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Interesting numbers";
 			};
 			name = Release;
@@ -580,14 +602,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Interesting numbers";
 			};
 			name = Debug;
@@ -605,14 +627,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Interesting numbers";
 			};
 			name = Release;
@@ -657,6 +679,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		6595C4FC30A31EB300F3B6B3 /* XCLocalSwiftPackageReference "InterestingNumbersLibrary" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = InterestingNumbersLibrary;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6595C4FD30A31EB300F3B6B3 /* InterestingNumbersLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = InterestingNumbersLibrary;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6538F2883086633300AEFFEC /* Project object */;
 }

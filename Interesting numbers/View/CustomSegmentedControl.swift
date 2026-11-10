@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import InterestingNumbersLibrary
 
 final class CustomSegmentedControl: UIView {
     
@@ -15,14 +16,15 @@ final class CustomSegmentedControl: UIView {
     private let selectedColor = UIColor.tintColor
     private let normalColor = UIColor.lightPink
     
-    private(set) var selectedIndex = 0
-    var onSelectionChanged: ((Int) -> Void)?
+    private var selectedIndex = 0
+    var selectedMode: RequestMode { segments[selectedIndex].mode }
+    var onSelectionChanged: ((RequestMode) -> Void)?
     
-    private let titles = [
-        "User\nnumber",
-        "Random\nnumber",
-        "Number\nin a range",
-        "Multiple\nnumbers"
+    private let segments: [(title: String, mode: RequestMode)] = [
+        ("User\nnumber", .single),
+        ("Random\nnumber", .random),
+        ("Number\nin a range", .range),
+        ("Multiple\nnumbers", .multiple)
     ]
     
     override init(frame: CGRect) {
@@ -62,10 +64,10 @@ final class CustomSegmentedControl: UIView {
     }
     
     private func setupButtons() {
-        for (index, title) in titles.enumerated() {
+        for (index, segment) in segments.enumerated() {
             let button = UIButton(type: .system)
             
-            button.setTitle(title, for: .normal)
+            button.setTitle(segment.title, for: .normal)
             button.titleLabel?.font = .systemFont(
                 ofSize: 16,
                 weight: .semibold
@@ -108,6 +110,6 @@ final class CustomSegmentedControl: UIView {
                 for: .normal
             )
         }
-        onSelectionChanged?(selectedIndex)
+        onSelectionChanged?(selectedMode)
     }
 }
